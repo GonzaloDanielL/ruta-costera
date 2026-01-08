@@ -1,0 +1,49 @@
+---
+import itinerario from "../../data/datos.json";
+import HeaderSections from "../ui/HeaderSections.astro";
+---
+
+<section
+    id="itinerario"
+    class="flex flex-col justify-center items-center bg-gray-50 px-6 py-20"
+>
+    <!-- Header itinerario -->
+    <HeaderSections
+        title="Itinerario"
+        subtitle="Un viaje lleno de aventuras."
+    />
+
+    <!-- itinerario Timeline -->
+    <div>
+        <!-- Item -->
+        {
+            itinerario.itinerario.map((item) => (
+                <div class="flex gap-x-2">
+                    {/*                     <div class="min-w-14 text-end">
+                        <span class="text-xs text-gray-900">{item.hora}</span>
+                    </div> */}
+
+                    <div class="relative last:after:hidden after:absolute after:top-7 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-gray-400">
+                        <div class="relative z-10 size-7 flex justify-center items-center">
+                            <div class="size-2 rounded-full bg-amber-300 pulse-animation" />
+                            <div class="absolute size-2 rounded-full bg-amber-300"></div>
+                        </div>
+                    </div>
+
+                    <div class="grow pt-0.5 pb-8">
+                        <span class="px-3 py-2 text-xs rounded-lg font-semibold text-gray-800 bg-amber-300">
+                            {item.hora}
+                        </span>
+                        <h3 class="mt-4 flex gap-x-1.5 rounded-lg font-medium text-lg text-gray-800">
+                            {item.titulo}
+                        </h3>
+                        <p class="mt-1 mb-1 text-base text-gray-600">
+                            {item.descripcion}
+                        </p>
+                    </div>
+                </div>
+            ))
+        }
+        <!-- End Item -->
+    </div>
+</section>

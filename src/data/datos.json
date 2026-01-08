@@ -1,0 +1,68 @@
+{
+    "itinerario": [
+        {
+            "hora": "04:00 AM",
+            "titulo": "Partida desde Lima",
+            "descripcion": "Reunión en los puntos de encuentro (San Borja / Los Olivos) y salida puntual rumbo a Paracas."
+        },
+        {
+            "hora": "08:00 AM",
+            "titulo": "Llegada a Paracas",
+            "descripcion": "Tiempo libre para desayunar, usar servicios higiénicos y prepararse para el tour marino."
+        },
+        {
+            "hora": "10:00 AM",
+            "titulo": "Tour Islas Ballestas",
+            "descripcion": "Paseo en deslizador moderno para ver el Candelabro, lobos marinos y pingüinos de Humboldt."
+        },
+        {
+            "hora": "01:00 PM",
+            "titulo": "Huacachina y Almuerzo",
+            "descripcion": "Traslado al oasis de América. Tiempo para almorzar platos típicos de la región."
+        },
+        {
+            "hora": "04:00 PM",
+            "titulo": "Tubulares y Sandboard",
+            "descripcion": "Full adrenalina en las dunas con carros areneros y tablas para deslizarse en la arena."
+        }
+    ],
+
+    "beneficios": [
+        {
+            "icono": "/iconos/Bus-icono.svg",
+            "titulo": "Transporte Turístico Privado",
+            "descripcion": "Ida y vuelta desde Lima. Asientos reclinables, aire acondicionado y TV para que descanses en el camino."
+        },
+
+        {
+            "icono": "/iconos/dolar-icono.svg",
+            "titulo": "Todos los Impuestos y Entradas",
+            "descripcion": "Incluye tasa de embarque en Paracas e impuestos municipales en Huacachina. ¡Cero pagos extra!"
+        },
+        {
+            "icono": "/iconos/barco-icono.svg",
+            "titulo": "Paseo Náutico (Islas Ballestas)",
+            "descripcion": "Chalecos salvavidas certificados y deslizador moderno."
+        },
+        {
+            "icono": "/iconos/tabla-icono.svg",
+            "titulo": "Aventura en las Dunas",
+            "descripcion": "Carros areneros (Tubulares) y tablas de sandboard para todos los niveles."
+        },
+        {
+            "icono": "/iconos/readme-icono.svg",
+            "titulo": "Guía Oficial de Turismo",
+            "descripcion": "Acompañamiento permanente y asistencia durante todo el viaje."
+        },
+        {
+            "icono": "/iconos/vino-icono.svg",
+            "titulo": "Degustación Gratuita",
+            "descripcion": "Prueba los mejores vinos, piscos y cremas en una bodega tradicional de Ica."
+        },
+        {
+            "icono": "/iconos/botiquin-icono.svg",
+            "titulo": "Botiquín de Primeros Auxilios",
+            "descripcion": "Tu seguridad es nuestra prioridad."
+        }
+    ]
+}

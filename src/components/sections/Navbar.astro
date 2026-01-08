@@ -1,0 +1,162 @@
+---
+// Se puede agregar lógica de Astro aquí si es necesario en el futuro
+---
+
+<header class="bg-white backdrop-blur-lg shadow-sm fixed top-0 z-50 w-full">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2">
+            <img
+                class="h-8 w-auto"
+                src="/ruta-costera-logo.webp"
+                alt="Logo Ruta Costera"
+            />
+            <span class="font-bold text-base text-gray-800">Ruta Costera</span>
+        </a>
+
+        <!-- Menu de Navegación -->
+        <div
+            id="mobile-menu"
+            class="max-h-0 absolute top-full left-0 w-full bg-gray-100 flex flex-col items-center gap-4 lg:p-0 shadow-lg transition-all duration-300 ease-in-out overflow-hidden"
+        >
+            <a
+                href="#inicio"
+                data-nav-link
+                class="text-gray-600 mt-4 hover:text-amber-400 hover:scale-105 transition-all duration-300"
+                >Inicio</a
+            >
+            <a
+                href="#itinerario"
+                data-nav-link
+                class="text-gray-600 hover:text-amber-400 hover:scale-105 transition-all duration-300"
+                >Itinerario</a
+            >
+            <a
+                href="#beneficios"
+                data-nav-link
+                class="text-gray-600 hover:text-amber-400 hover:scale-105 transition-all duration-300"
+                >Beneficios</a
+            >
+            <a
+                href="#galeria"
+                data-nav-link
+                class="text-gray-600 hover:text-amber-400 hover:scale-105 transition-all duration-300"
+                >Galería</a
+            >
+            <a
+                href="#venta"
+                data-nav-link
+                class="text-gray-600 mb-4 hover:text-amber-400 hover:scale-105 transition-all duration-300"
+                >Venta</a
+            >
+        </div>
+
+        <!-- Botón de menu mobile -->
+        <button
+            id="mobile-menu-button"
+            class="lg:hidden flex items-center font-bold bg-transparent text-black"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8"
+                viewBox="0 0 24 24"
+                ><path
+                    fill="currentColor"
+                    d="M4 18q-.425 0-.712-.288T3 17t.288-.712T4 16h16q.425 0 .713.288T21 17t-.288.713T20 18zm0-5q-.425 0-.712-.288T3 12t.288-.712T4 11h16q.425 0 .713.288T21 12t-.288.713T20 13zm0-5q-.425 0-.712-.288T3 7t.288-.712T4 6h16q.425 0 .713.288T21 7t-.288.713T20 8z"
+                ></path></svg
+            >
+        </button>
+
+        <!-- Botón de directo a whatsapp -->
+        <a
+            href="#venta"
+            class="hidden lg:flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                viewBox="0 0 16 16"
+                ><path
+                    fill="currentColor"
+                    d="M13.95 4.24C11.86 1 7.58.04 4.27 2.05C1.04 4.06 0 8.44 2.09 11.67l.17.26l-.7 2.62l2.62-.7l.26.17c1.13.61 2.36.96 3.58.96c1.31 0 2.62-.35 3.75-1.05c3.23-2.1 4.19-6.39 2.18-9.71Zm-1.83 6.74c-.35.52-.79.87-1.4.96c-.35 0-.79.17-2.53-.52c-1.48-.7-2.71-1.84-3.58-3.15c-.52-.61-.79-1.4-.87-2.19c0-.7.26-1.31.7-1.75c.17-.17.35-.26.52-.26h.44c.17 0 .35 0 .44.35c.17.44.61 1.49.61 1.58c.09.09.05.76-.35 1.14c-.22.25-.26.26-.17.44c.35.52.79 1.05 1.22 1.49c.52.44 1.05.79 1.66 1.05c.17.09.35.09.44-.09c.09-.17.52-.61.7-.79c.17-.17.26-.17.44-.09l1.4.7c.17.09.35.17.44.26c.09.26.09.61-.09.87Z"
+                ></path></svg
+            >
+            Comprar
+        </a>
+    </nav>
+</header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        function toggleMobileMenu() {
+            if (mobileMenu) {
+                mobileMenu.classList.toggle("max-h-96");
+                mobileMenu.classList.toggle("max-h-0");
+            }
+        }
+
+        if (mobileMenuButton && mobileMenu) {
+            const navLinksMobile = mobileMenu.querySelectorAll("a");
+
+            navLinksMobile.forEach((link) => {
+                link.addEventListener("click", () => {
+                    toggleMobileMenu();
+                });
+            });
+
+            mobileMenuButton.addEventListener("click", () => {
+                toggleMobileMenu();
+            });
+        }
+
+        // Section observer logic
+        const navLinks = document.querySelectorAll("[data-nav-link]");
+        const sections = Array.from(navLinks)
+            .map((link) => {
+                const href = link.getAttribute("href");
+                if (href && href.startsWith("#")) {
+                    return document.getElementById(href.substring(1));
+                }
+                return null;
+            })
+            .filter((section) => section !== null) as HTMLElement[];
+
+        if (sections.length === 0) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        navLinks.forEach((link) => {
+                            const href = link.getAttribute("href");
+                            if (href && href === `#${id}`) {
+                                link.classList.add(
+                                    "text-amber-400",
+                                    "scale-105",
+                                );
+                                link.classList.remove("text-gray-600");
+                            } else {
+                                link.classList.remove(
+                                    "text-amber-400",
+                                    "scale-105",
+                                );
+                                link.classList.add("text-gray-600");
+                            }
+                        });
+                    }
+                });
+            },
+            {
+                rootMargin: "-50% 0px -50% 0px",
+                threshold: 0,
+            },
+        );
+
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+    });
+</script>

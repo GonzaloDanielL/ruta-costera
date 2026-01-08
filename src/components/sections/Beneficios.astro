@@ -1,0 +1,32 @@
+---
+import HeaderSections from "../ui/HeaderSections.astro";
+import beneficios from "../../data/datos.json";
+---
+
+<section
+    id="beneficios"
+    class="flex flex-col justify-center items-center px-6 py-20 bg-gray-200"
+>
+    <!-- Header Beneficios -->
+    <HeaderSections
+        title="Beneficios"
+        subtitle="Viaja sin preocupaciones: Nos encargamos de todo"
+    />
+    <!-- end Header Beneficios -->
+
+    <!-- Beneficios -->
+    <div >
+<!--         <img src="" alt="" /> -->
+        <div class="grid grid-cols-1 gap-7">
+            {
+                beneficios.beneficios.map((item) => (
+                    <div class="flex flex-col gap-2 py-4 px-4 rounded-xl bg-gray-50">
+                        <img class="px-2 py-2 w-12 h-12 bg-amber-300 rounded-xl" src={item.icono} alt="Bus icono" />
+                        <h3 class="text-lg font-medium text-gray-800">{item.titulo}</h3>
+                        <p class="text-base text-gray-600">{item.descripcion}</p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
