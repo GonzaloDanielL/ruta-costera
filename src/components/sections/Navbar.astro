@@ -2,8 +2,10 @@
 // Se puede agregar lógica de Astro aquí si es necesario en el futuro
 ---
 
-<header class="bg-white backdrop-blur-lg shadow-sm fixed top-0 z-50 w-full">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+<header
+    class="bg-white backdrop-blur-lg shadow-sm fixed top-0 z-50 w-full px-6 py-4 md:px-12 md:py-6"
+>
+    <nav class="container mx-auto flex justify-between items-center max-w-7xl">
         <!-- Logo -->
         <a href="/" class="flex items-center gap-2">
             <img
@@ -17,12 +19,12 @@
         <!-- Menu de Navegación -->
         <div
             id="mobile-menu"
-            class="max-h-0 absolute top-full left-0 w-full bg-gray-100 flex flex-col items-center gap-4 lg:p-0 shadow-lg transition-all duration-300 ease-in-out overflow-hidden"
+            class="max-h-0 absolute top-full left-0 w-full bg-gray-100 flex flex-col items-center gap-4 lg:p-0 shadow-lg transition-all duration-300 ease-in-out overflow-hidden lg:max-h-full lg:relative lg:flex-row lg:shadow-none lg:justify-center lg:gap-8 lg:bg-transparent lg:w-auto"
         >
             <a
                 href="#inicio"
                 data-nav-link
-                class="text-gray-600 mt-4 hover:text-amber-400 hover:scale-105 transition-all duration-300"
+                class="text-gray-600 mt-4 hover:text-amber-400 hover:scale-105 transition-all duration-300 lg:mt-0"
                 >Inicio</a
             >
             <a
@@ -46,7 +48,7 @@
             <a
                 href="#venta"
                 data-nav-link
-                class="text-gray-600 mb-4 hover:text-amber-400 hover:scale-105 transition-all duration-300"
+                class="text-gray-600 mb-4 hover:text-amber-400 hover:scale-105 transition-all duration-300 lg:mb-0"
                 >Venta</a
             >
         </div>
@@ -54,7 +56,7 @@
         <!-- Botón de menu mobile -->
         <button
             id="mobile-menu-button"
-            class="lg:hidden flex items-center font-bold bg-transparent text-black"
+            class="flex items-center font-bold bg-transparent text-black lg:hidden"
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +71,8 @@
 
         <!-- Botón de directo a whatsapp -->
         <a
-            href="#venta"
+            href="https://chalo-portafolio.vercel.app/"
+            target="_blank"
             class="hidden lg:flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105"
         >
             <svg
@@ -87,6 +90,7 @@
 </header>
 
 <script>
+    // función para el botón de menu
     document.addEventListener("DOMContentLoaded", () => {
         const mobileMenu = document.getElementById("mobile-menu");
         const mobileMenuButton = document.getElementById("mobile-menu-button");
@@ -111,7 +115,7 @@
             });
         }
 
-        // Section observer logic
+        // detección de secciones
         const navLinks = document.querySelectorAll("[data-nav-link]");
         const sections = Array.from(navLinks)
             .map((link) => {

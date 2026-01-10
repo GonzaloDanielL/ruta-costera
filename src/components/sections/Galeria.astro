@@ -1,10 +1,17 @@
 ---
+import { Image } from "astro:assets";
 import HeaderSections from "../ui/HeaderSections.astro";
+import imgIslasBallestas from "../../assets/galeria/islas-ballestas.jpg";
+import imgIslasBallestas2 from "../../assets/galeria/islas-ballestas-2.jpg";
+import imgParacas from "../../assets/galeria/paracas.jpg";
+import imgIslasBallestas3 from "../../assets/galeria/islas-ballestas-3.jpg";
+import imgHuacachina from "../../assets/galeria/huacachina.jpg";
+import imgDunas from "../../assets/galeria/dunas.jpg";
 ---
 
 <section
     id="galeria"
-    class="flex flex-col justify-center items-center px-6 py-20 bg-gray-50"
+    class="flex flex-col justify-center items-center px-6 py-20 bg-gray-50 md:px-12 xl:py-40"
 >
     <!-- Header Galeria -->
     <HeaderSections
@@ -14,12 +21,60 @@ import HeaderSections from "../ui/HeaderSections.astro";
     <!-- end Header Galeria -->
 
     <!-- Galería -->
-    <div class="grid grid-cols-1 gap-7">
-        <img class="w-full h-72 object-cover rounded-xl shadow-md" src="/galeria/islas-ballestas.jpg" alt="Imagen de islas ballestas" />
-        <img class="w-full h-72 object-cover rounded-xl shadow-md" src="/galeria/islas-ballestas-2.jpg" alt="Imagen de lobos marinos en las islas ballestas" />
-        <img class="w-full h-72 object-cover rounded-xl shadow-md" src="/galeria/paracas.jpg" alt="Imagen de playa de Paracas" />
-        <img class="w-full h-72 object-cover rounded-xl shadow-md" src="/galeria/islas-ballestas-3.jpg" alt="" />
-        <img class="w-full h-72 object-cover rounded-xl shadow-md" src="/galeria/huacachina.jpg" alt="" />
-        <img class="w-full h-72 object-cover rounded-xl shadow-md" src="/galeria/dunas.jpg" alt="" />
+    <div class="grid grid-cols-1 gap-4 lg:gap-7 md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-2 max-w-7xl">
+        <Image
+            class="w-full h-full object-cover rounded-xl shadow-md xl:col-start-1"
+            src={imgIslasBallestas2}
+            alt="Imagen de lobos marinos en las islas ballestas"
+            width={432}
+            height={590}
+            format="webp"
+            quality={90}
+        />
+        <Image
+            class="w-full h-full object-cover rounded-xl shadow-md xl:row-span-2"
+            src={imgParacas}
+            alt="Imagen de playa de Paracas"
+            width={432}
+            height={590}
+            format="webp"
+            quality={90}
+        />
+        <Image
+            class="w-full h-72 object-cover rounded-xl shadow-md md:h-full xl:col-start-1 xl:row-start-2"
+            src={imgIslasBallestas}
+            alt="Imagen de islas ballestas"
+            width={432}
+            height={288}
+            format="webp"
+            quality={90}
+        />
+        <Image
+            class="w-full h-72 object-cover rounded-xl shadow-md md:h-full xl:col-span-2 xl:col-start-3"
+            src={imgIslasBallestas3}
+            alt="Candelabro de Paracas"
+            width={432}
+            height={288}
+            format="webp"
+            quality={90}
+        />
+        <Image
+            class="w-full h-72 object-cover rounded-xl shadow-md md:h-full"
+            src={imgHuacachina}
+            alt="Oasis de la Huacachina"
+            width={432}
+            height={288}
+            format="webp"
+            quality={90}
+        />
+        <Image
+            class="w-full h-72 object-cover rounded-xl shadow-md md:h-full"
+            src={imgDunas}
+            alt="Dunas de la Huacachina"
+            width={432}
+            height={288}
+            format="webp"
+            quality={90}
+        />
     </div>
 </section>
