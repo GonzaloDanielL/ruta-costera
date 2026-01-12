@@ -11,7 +11,7 @@ import imgDunas from "../../assets/galeria/dunas.jpg";
 
 <section
     id="galeria"
-    class="flex flex-col justify-center items-center px-6 py-20 bg-gray-50 md:px-12 xl:py-40"
+    class="timeline-view animate-slide-up-fade animate-range-[entry_1%_contain_2%] flex flex-col justify-center items-center px-6 py-20 bg-gray-50 md:px-12 xl:py-40"
 >
     <!-- Header Galeria -->
     <HeaderSections
@@ -23,16 +23,17 @@ import imgDunas from "../../assets/galeria/dunas.jpg";
     <!-- Galería -->
     <div class="grid grid-cols-1 gap-4 lg:gap-7 md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-2 max-w-7xl">
         <Image
-            class="w-full h-72 xl:h-full object-cover rounded-xl shadow-md xl:col-start-1"
+            class="w-full h-72 xl:h-full object-cover rounded-xl shadow-md xl:col-start-1 hover:scale-105 transition-transform duration-300"
             src={imgIslasBallestas2}
             alt="Imagen de lobos marinos en las islas ballestas"
             width={432}
             height={590}
             format="webp"
             quality={90}
+            tabindex="0"
         />
         <Image
-            class="w-full h-72 xl:h-full object-cover rounded-xl shadow-md xl:row-span-2"
+            class="w-full h-72 xl:h-full object-cover rounded-xl shadow-md xl:row-span-2 hover:scale-105 transition-transform duration-300"
             src={imgParacas}
             alt="Imagen de playa de Paracas"
             width={432}
@@ -41,7 +42,7 @@ import imgDunas from "../../assets/galeria/dunas.jpg";
             quality={90}
         />
         <Image
-            class="w-full h-72 object-cover rounded-xl shadow-md md:h-full xl:col-start-1 xl:row-start-2"
+            class="w-full h-72 object-cover rounded-xl shadow-md md:h-full xl:col-start-1 xl:row-start-2 hover:scale-105 transition-transform duration-300"
             src={imgIslasBallestas}
             alt="Imagen de islas ballestas"
             width={432}
@@ -50,7 +51,7 @@ import imgDunas from "../../assets/galeria/dunas.jpg";
             quality={90}
         />
         <Image
-            class="w-full h-72 object-cover rounded-xl shadow-md md:h-full xl:col-span-2 xl:col-start-3"
+            class="w-full h-72 object-cover rounded-xl shadow-md md:h-full xl:col-span-2 xl:col-start-3 hover:scale-105 transition-transform duration-300"
             src={imgIslasBallestas3}
             alt="Candelabro de Paracas"
             width={432}
@@ -59,7 +60,7 @@ import imgDunas from "../../assets/galeria/dunas.jpg";
             quality={90}
         />
         <Image
-            class="w-full h-72 object-cover rounded-xl shadow-md md:h-full"
+            class="w-full h-72 object-cover rounded-xl shadow-md md:h-full hover:scale-105 transition-transform duration-300"
             src={imgHuacachina}
             alt="Oasis de la Huacachina"
             width={432}
@@ -68,7 +69,7 @@ import imgDunas from "../../assets/galeria/dunas.jpg";
             quality={90}
         />
         <Image
-            class="w-full h-72 object-cover rounded-xl shadow-md md:h-full"
+            class="w-full h-72 object-cover rounded-xl shadow-md md:h-full hover:scale-105 transition-transform duration-300"
             src={imgDunas}
             alt="Dunas de la Huacachina"
             width={432}

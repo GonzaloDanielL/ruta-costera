@@ -7,7 +7,7 @@ import imgParacas from "../../assets/galeria/paracas.jpg";
 
 <section
     id="beneficios"
-    class="flex flex-col justify-center items-center px-6 py-20 bg-gray-200 md:px-12 xl:py-40"
+    class="timeline-view animate-slide-up-fade animate-range-[entry_1%_contain_2%] flex flex-col justify-center items-center px-6 py-20 bg-gray-200 md:px-12 xl:py-40"
 >
     <!-- Header Beneficios -->
     <HeaderSections
@@ -33,7 +33,7 @@ import imgParacas from "../../assets/galeria/paracas.jpg";
         <div class="grid grid-cols-1 gap-4 lg:gap-7 md:grid-cols-2">
             {
                 beneficios.beneficios.map((item) => (
-                    <div class="flex flex-col gap-2 py-4 px-4 rounded-xl bg-gray-50 shadow-sm">
+                    <div class="hover:shadow-amber-300 transition-shadow duration-300 flex flex-col gap-2 py-4 px-4 rounded-xl bg-gray-50 shadow-md">
                         <img
                             class="px-2 py-2 w-12 h-12 bg-amber-300 rounded-xl"
                             src={item.icono}
