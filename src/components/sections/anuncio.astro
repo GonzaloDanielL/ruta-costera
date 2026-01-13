@@ -1,0 +1,62 @@
+<div id="anuncio-timer" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white text-center px-6 py-4 z-50 md:px-12 md:py-6">
+  <p class="text-base font-semibold xl:text-xl">
+    ¡OFERTA ESPECIAL! Termina en: 
+    <span id="timer" class="font-bold text-base md:text-xl">24:00:00</span>
+  </p>
+</div>
+
+<script>
+  // Use a global variable to hold the interval ID, to prevent multiple timers
+  let countdownInterval;
+
+  function startCountdown() {
+    // Clear any existing interval to avoid multiple timers running at once
+    clearInterval(countdownInterval);
+
+    const timerElement = document.getElementById('timer');
+    const anuncioElement = document.getElementById('anuncio-timer');
+
+    if (!timerElement || !anuncioElement) {
+      return;
+    }
+
+    let offerEndDate = localStorage.getItem('offerEndDate');
+
+    if (!offerEndDate) {
+      const now = new Date();
+      now.setHours(now.getHours() + 24);
+      offerEndDate = now.getTime().toString();
+      localStorage.setItem('offerEndDate', offerEndDate);
+    }
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const distance = parseInt(offerEndDate, 10) - now;
+
+      if (distance < 0) {
+        anuncioElement.style.display = 'none';
+        localStorage.removeItem('offerEndDate');
+        clearInterval(countdownInterval);
+        return;
+      }
+
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      timerElement.innerHTML = 
+        (hours < 10 ? '0' : '') + hours + ':' + 
+        (minutes < 10 ? '0' : '') + minutes + ':' + 
+        (seconds < 10 ? '0' : '') + seconds;
+    }
+
+    updateTimer(); // Run once immediately
+    countdownInterval = setInterval(updateTimer, 1000); // Start the interval
+  }
+
+  // Run the countdown on initial page load
+  startCountdown();
+
+  // Also run the countdown on subsequent page loads for Astro's View Transitions
+  document.addEventListener('astro:page-load', startCountdown);
+</script>

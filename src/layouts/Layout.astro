@@ -1,6 +1,7 @@
 ---
 import Navbar from "../components/sections/Navbar.astro";
 import Footer from "../components/sections/Footer.astro";
+import Anuncio from "../components/sections/anuncio.astro";
 import "../styles/global.css";
 export interface Props {
 	title: string;
@@ -26,6 +27,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="bg-gray-50 font-ruta-costera overflow-x-hidden">
+		<Anuncio />
 		<Navbar />
 		<slot />
 		<Footer />
