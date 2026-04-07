@@ -1,17 +1,19 @@
-<div id="anuncio-timer" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white text-center px-6 py-4 z-50 md:px-12 md:py-6">
+<a href="#venta" id="anuncio-timer" class="block fixed bottom-0 left-0 right-0 bg-gray-900 text-white text-center px-6 py-4 z-50 md:px-12 md:py-6">
   <p class="text-base font-semibold xl:text-xl">
     ¡OFERTA ESPECIAL! Termina en: 
     <span id="timer" class="font-bold text-base md:text-xl">24:00:00</span>
   </p>
-</div>
+</a>
 
 <script>
   // Use a global variable to hold the interval ID, to prevent multiple timers
-  let countdownInterval;
+  let countdownInterval: number | undefined;
 
   function startCountdown() {
     // Clear any existing interval to avoid multiple timers running at once
-    clearInterval(countdownInterval);
+    if (countdownInterval !== undefined) {
+      clearInterval(countdownInterval);
+    }
 
     const timerElement = document.getElementById('timer');
     const anuncioElement = document.getElementById('anuncio-timer');
@@ -31,12 +33,14 @@
 
     function updateTimer() {
       const now = new Date().getTime();
-      const distance = parseInt(offerEndDate, 10) - now;
+      const distance = parseInt(offerEndDate as string, 10) - now;
 
       if (distance < 0) {
         anuncioElement.style.display = 'none';
         localStorage.removeItem('offerEndDate');
-        clearInterval(countdownInterval);
+        if (countdownInterval !== undefined) {
+          clearInterval(countdownInterval);
+        }
         return;
       }
 
@@ -51,7 +55,7 @@
     }
 
     updateTimer(); // Run once immediately
-    countdownInterval = setInterval(updateTimer, 1000); // Start the interval
+    countdownInterval = window.setInterval(updateTimer, 1000); // Start the interval
   }
 
   // Run the countdown on initial page load
